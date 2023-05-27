@@ -1,0 +1,23 @@
+
+        
+            <div class="formDetails">
+                <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+                    <div id="userData" >
+                        <input type="text" id="username" name="username" placeholder="USERNAME" formControlName="username"><br>
+                        <p class="error" *ngIf="!form.get('username')?.valid && form.get ('username')?.touched">Username is required*</p>
+                        <input type="password" id="password" name="password" placeholder="PASSWORD" formControlName="password"><br>
+                        <p class="error" *ngIf="!form.get('password')?.valid && form.get ('password')?.touched">Password is required*</p>
+                        <input type="email" id="email" name="email" placeholder="EMAIL" formControlName="email"><br>
+                        <div *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
+                            <p class="error" *ngIf="form.get('email')!.errors!['required']">Email is required*</p>
+                            <p *ngIf="form.get('email')!.errors!['emailerror']">email does not match pattern</p>
+                        </div>
+                        
+                        <button  type="submit" class="btn">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        
+ 
+
